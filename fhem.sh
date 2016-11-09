@@ -6,3 +6,4 @@ if [[ ! -f /opt/fhem/COPIED ]]; then
 fi
 
 exec /usr/bin/perl fhem.pl fhem.cfg
+
