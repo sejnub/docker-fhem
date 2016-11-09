@@ -8,6 +8,7 @@ RUN apt-get update
 
 # Update your package administration:
 RUN apt-get -qy install wget
+RUN apt-get -qy install apt-transport-https
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
