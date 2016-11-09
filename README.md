@@ -13,8 +13,6 @@ rm -rf docker-fhem
 git clone https://github.com/sejnub/docker-fhem.git
 cd docker-fhem 
 
-nano Dockerfile
-
 docker build -t sejnub/fhem .
 
 docker rm fhem
