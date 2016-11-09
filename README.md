@@ -7,16 +7,19 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 ## clips
 
 ```
-
 cd ..
 rm -rf docker-fhem 
 
 git clone https://github.com/sejnub/docker-fhem.git
 cd docker-fhem 
+
+nano Dockerfile
+
 docker build -t sejnub/fhem .
 
-docker stop fhem
 docker rm fhem
-docker run -it -p 8083:8083 --name fhem sejnub/fhem
+docker run -d -p 8083:8083 --name fhem sejnub/fhem
+
+sudo docker exec -i -t fhem bash
 
 ```
