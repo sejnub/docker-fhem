@@ -6,5 +6,15 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 
 ## clips
 
-```awpiftg```
-´´´werg erg ´´´
+´´´
+
+cd ..
+rm -rf docker-fhem 
+
+git clone https://github.com/sejnub/docker-fhem.git
+cd docker-fhem 
+docker build -t sejnub/docker-fhem .
+
+docker run --net host -it sejnub/docker-fhem
+
+´´´
