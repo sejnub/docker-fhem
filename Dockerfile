@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian:jessie-20160831
 MAINTAINER sejnub
 
 # Update your package administration:
-RUN apt-get -y wget
+RUN apt-get -qy wget
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
@@ -14,7 +14,7 @@ RUN deb https://debian.fhem.de/stable ./
 RUN apt-get update
 
 # Install fhem:
-RUN apt-get -y install fhem
+RUN apt-get -qy install fhem
 
 EXPOSE 8083 8084 8085 7072
 
