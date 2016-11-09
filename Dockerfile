@@ -1,38 +1,20 @@
-FROM hypriot/rpi-alpine-scratch:v3.4
-
+FROM resin/rpi-raspbian:jessie-20160831  
 MAINTAINER sejnub
 
-ENV FHEM_VERSION 5.7
+# Import repository gpg key:
+RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
-RUN apk add --update perl && \
-    rm -rf /var/cache/apk/*
+# Add repository to /etc/apt/sources.list:
+RUN deb https://debian.fhem.de/stable ./
 
-RUN apk add --update perl-device-serialport \
-                     perl-io-socket-ssl \
-                     perl-libwww \
-                     perl-xml-simple \
-                     perl-json \
-                     bash \ # HB: Now i can attach by typing "sudo docker exec -i -t fhem bash"
-        && rm -rf /var/cache/apk/*
+# Update your package administration:
+RUN apt-get update
 
-RUN mkdir -p /opt/fhem && \
-    addgroup fhem && \
-    adduser -D -G fhem -G dialout -h /opt/fhem -u 1000 fhem
-
-VOLUME /opt/fhem
-
-ADD http://fhem.de/fhem-${FHEM_VERSION}.tar.gz /usr/local/lib/fhem.tar
-RUN cd /opt && tar xvf /usr/local/lib/fhem.tar
-RUN echo 'attr global nofork 1\n' >> /opt/fhem-5.7/fhem.cfg
+# Install fhem:
+RUN apt-get install fhem
 
 EXPOSE 8083 8084 8085 7072
-
-COPY fhem.sh /usr/local/bin/fhem.sh
-RUN chmod a+x /usr/local/bin/fhem.sh
-
-WORKDIR /opt/fhem
 
 USER fhem
 
 ENTRYPOINT ["/usr/local/bin/fhem.sh"]
-
