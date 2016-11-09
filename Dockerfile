@@ -13,7 +13,7 @@ RUN apt-get -qy install wget
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
 # Add repository to /etc/apt/sources.list:
-RUN deb https://debian.fhem.de/stable ./
+RUN add-apt-repository 'deb https://debian.fhem.de/stable ./'
 
 # Install fhem:
 RUN apt-get -qy install fhem
