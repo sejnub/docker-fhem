@@ -6,7 +6,7 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 
 ## clips
 
-´´´
+```
 cd ..
 rm -rf docker-fhem 
 
@@ -15,4 +15,4 @@ cd docker-fhem
 docker build -t sejnub/docker-fhem .
 
 docker run --net host -it sejnub/docker-fhem
-´´´
+```
