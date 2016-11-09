@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian:jessie-20160831
 MAINTAINER sejnub
 
 # Update your package administration:
-RUN apt-get -qy wget
+RUN apt-get -qy install wget
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
