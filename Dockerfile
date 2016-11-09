@@ -6,7 +6,7 @@ MAINTAINER sejnub
 # Update your package administration:
 RUN apt-get update
 
-# Update your package administration:
+# 
 RUN apt-get -qy install wget
 RUN apt-get -qy install apt-transport-https
 
@@ -14,7 +14,7 @@ RUN apt-get -qy install apt-transport-https
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
 # Add repository to /etc/apt/sources.list:
-RUN echo "deb https://debian.fhem.de/stable ./" | sudo tee -a /etc/apt/sources.list
+RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
 
 # Update your package administration:
 RUN apt-get update
