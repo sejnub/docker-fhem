@@ -14,5 +14,6 @@ git clone https://github.com/sejnub/docker-fhem.git
 cd docker-fhem 
 docker build -t sejnub/docker-fhem .
 
+docker rm fhem
 docker run -it -p 8083:8083 --name fhem sejnub/docker-fhem
 ```
