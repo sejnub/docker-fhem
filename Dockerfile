@@ -13,11 +13,7 @@ RUN apt-get -qy install apt-transport-https
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
-# this package contains "add-apt-repository"
-#RUN apt-get -qy install software-properties-common
-
 # Add repository to /etc/apt/sources.list:
-#RUN add-apt-repository 'deb https://debian.fhem.de/stable ./'
 RUN echo "deb https://debian.fhem.de/stable ./" | sudo tee -a /etc/apt/sources.list
 
 # Update your package administration:
