@@ -26,4 +26,4 @@ EXPOSE 8083 8084 8085 7072
 
 # USER fhem
 
-ENTRYPOINT ["/etc/init.d/fhem start"]
+#ENTRYPOINT ["/etc/init.d/fhem start"]
