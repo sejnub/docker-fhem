@@ -12,6 +12,9 @@ RUN apt-get -qy install wget
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
+# this package contains "add-apt-repository"
+RUN apt-get -qy install software-properties-common
+
 # Add repository to /etc/apt/sources.list:
 RUN add-apt-repository 'deb https://debian.fhem.de/stable ./'
 
