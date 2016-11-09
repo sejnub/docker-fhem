@@ -28,6 +28,6 @@ RUN apt-get -qy install fhem
 
 EXPOSE 8083 8084 8085 7072
 
-USER fhem
+# USER fhem
 
-ENTRYPOINT ["/usr/local/bin/fhem.sh"]
+# ENTRYPOINT ["/usr/local/bin/fhem.sh"]
