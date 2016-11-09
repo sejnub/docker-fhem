@@ -2,7 +2,7 @@ version: '2'
 services:
   fhem:
     container_name: fhem
-    image: raigen/fhem:rpi-alpine_speedtest
+    image: raigen/fhem:rpi-alpine
     volumes:
       - fhem-data:/opt/fhem
       - /etc/localtime:/etc/localtime:ro
