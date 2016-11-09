@@ -1,6 +1,6 @@
 FROM raigen/rpi-alpine-perl
 
-MAINTAINER Raigen
+MAINTAINER sejnub
 
 ENV FHEM_VERSION 5.7
 
