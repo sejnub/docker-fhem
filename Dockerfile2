@@ -1,19 +1,20 @@
-FROM hypriot/rpi-alpine-scratch:v3.4
-
+FROM resin/rpi-raspbian:jessie-20160831  
 MAINTAINER sejnub
-
 ENV FHEM_VERSION 5.7
 
-RUN apk add --update perl && \
-    rm -rf /var/cache/apk/*
+RUN apt-get -y update 
 
-RUN apk add --update perl-device-serialport \
-                     perl-io-socket-ssl \
-                     perl-libwww \
-                     perl-xml-simple \
-                     perl-json \
-                     bash \ # HB: Now i can attach by typing "sudo docker exec -i -t fhem bash"
-        && rm -rf /var/cache/apk/*
+RUN apt-get -y install perl 
+
+
+RUN apt-get -y install \
+  perl-device-serialport \
+  perl-io-socket-ssl \
+  perl-libwww \
+  perl-xml-simple \
+  perl-json \
+  bash \ # HB: Now i can attach by typing "sudo docker exec -i -t fhem bash"
+
 
 RUN mkdir -p /opt/fhem && \
     addgroup fhem && \
