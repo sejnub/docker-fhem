@@ -31,3 +31,4 @@ WORKDIR /opt/fhem
 USER fhem
 
 ENTRYPOINT ["/usr/local/bin/fhem.sh"]
+
