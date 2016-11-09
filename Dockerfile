@@ -26,4 +26,5 @@ EXPOSE 8083 8084 8085 7072
 
 # USER fhem
 
+# See http://stackoverflow.com/questions/21898152/why-cant-you-start-postgres-in-docker-using-service-postgres-start
 #ENTRYPOINT ["/etc/init.d/fhem start"]
