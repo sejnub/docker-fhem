@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian:jessie-20160831  
 MAINTAINER sejnub
 
-# See https://debian.fhem.de/ for details
+# See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
 
 # Update your package administration:
 RUN apt-get update
