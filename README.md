@@ -15,4 +15,5 @@ cd docker-fhem
 docker build -t sejnub/docker-fhem .
 
 docker run --net host -it sejnub/docker-fhem
+docker run it -p 8083:8083 --name fhem sejnub/docker-fhem
 ```
