@@ -1,8 +1,11 @@
-FROM raigen/rpi-alpine-perl
+FROM hypriot/rpi-alpine-scratch:v3.4
 
-MAINTAINER Raigen
+MAINTAINER sejnub
 
 ENV FHEM_VERSION 5.7
+
+RUN apk add --update perl && \
+    rm -rf /var/cache/apk/*
 
 RUN apk add --update perl-device-serialport \
                      perl-io-socket-ssl \
