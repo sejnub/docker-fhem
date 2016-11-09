@@ -12,6 +12,7 @@ RUN apk add --update perl-device-serialport \
                      perl-libwww \
                      perl-xml-simple \
                      perl-json \
+                     bash \ # HB: Now i can attach by typing "sudo docker exec -i -t fhem bash"
         && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /opt/fhem && \
