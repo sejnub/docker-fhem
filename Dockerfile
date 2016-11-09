@@ -3,8 +3,6 @@ MAINTAINER sejnub
 
 # See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
 
-RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
-
 # Update your package administration:
 RUN apt-get update
 
@@ -19,7 +17,10 @@ RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
 # Add repository to /etc/apt/sources.list:
 #RUN add-apt-repository 'deb https://debian.fhem.de/stable ./'
-# RUN echo "deb https://debian.fhem.de/stable ./" | sudo tee -a /etc/apt/sources.list
+RUN echo "deb https://debian.fhem.de/stable ./" | sudo tee -a /etc/apt/sources.list
+
+# Update your package administration:
+RUN apt-get update
 
 # Install fhem:
 RUN apt-get -qy install fhem
