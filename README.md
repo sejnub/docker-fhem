@@ -15,6 +15,7 @@ cd docker-fhem
 
 docker build -t sejnub/fhem .
 
+docker stop fhem
 docker rm fhem
 docker run -d -p 8083:8083 --name fhem sejnub/fhem
 
