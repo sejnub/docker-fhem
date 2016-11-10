@@ -9,10 +9,10 @@ ENV port 7072
 # Update your package administration:
 RUN apt-get update
 
-# 
-RUN apt-get -qy install wget
+# Install packages taht are needed when building the image with this Dockerfile
 RUN apt-get -qy install apt-utils
 RUN apt-get -qy install apt-transport-https
+RUN apt-get -qy install wget
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
