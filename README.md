@@ -15,8 +15,7 @@ cd docker-fhem
 
 docker build -t sejnub/fhem .
 
-docker rm -f fhem
-docker run -d --rm -p 8083:8083 --name fhem sejnub/fhem
+docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem
 
 sudo docker exec -i -t fhem bash
 
