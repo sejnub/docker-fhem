@@ -34,7 +34,8 @@ RUN apt-get -qy install mc
 EXPOSE 8083 8084 8085 7072
 
 
-USER fhem
+RUN echo 'attr global nofork 1\n' >> /opt/fhem-5.7/fhem.cfg
+#USER fhem
 WORKDIR /opt/fhem
 
 # Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
