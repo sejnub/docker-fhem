@@ -11,6 +11,7 @@ RUN apt-get update
 
 # 
 RUN apt-get -qy install wget
+RUN apt-get -qy install apt-utils
 RUN apt-get -qy install apt-transport-https
 
 # Import repository gpg key:
