@@ -1,6 +1,9 @@
 FROM resin/rpi-raspbian:jessie-20160831  
 MAINTAINER sejnub
 
+ENV port 7072
+
+
 # See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
 
 # Update your package administration:
@@ -9,6 +12,9 @@ RUN apt-get update
 # 
 RUN apt-get -qy install wget
 RUN apt-get -qy install apt-transport-https
+
+# Just for development. Not needed for production
+RUN apt- get -qy install mc
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
@@ -22,9 +28,20 @@ RUN apt-get update
 # Install fhem:
 RUN apt-get -qy install fhem
 
+
+# Just for development. Not needed for production
+RUN apt- get -qy install mc
+
+
+# TODO: Start as user fhem?
+
 EXPOSE 8083 8084 8085 7072
+
+
+# See http://stackoverflow.com/questions/21898152/why-cant-you-start-postgres-in-docker-using-service-postgres-start
+
+WORKDIR /opt/fhem
+CMD "perl fhem.pl fhem.cfg"
 
 # USER fhem
 
-# See http://stackoverflow.com/questions/21898152/why-cant-you-start-postgres-in-docker-using-service-postgres-start
-#ENTRYPOINT ["/etc/init.d/fhem start"]
