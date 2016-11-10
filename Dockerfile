@@ -27,7 +27,7 @@ RUN apt-get -qy install fhem
 
 
 # Just for development. Not needed for production
-RUN apt- get -qy install mc
+RUN apt-get -qy install mc
 
 
 # TODO: Start as user fhem?
