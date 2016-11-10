@@ -31,15 +31,10 @@ RUN apt-get -qy install fhem
 RUN apt-get -qy install mc
 
 
-# TODO: Start as user fhem?
-
 EXPOSE 8083 8084 8085 7072
 
+WORKDIR /opt/fhem
+USER fhem
 
 # See http://stackoverflow.com/questions/21898152/why-cant-you-start-postgres-in-docker-using-service-postgres-start
-
-WORKDIR /opt/fhem
 CMD "perl fhem.pl fhem.cfg"
-
-# USER fhem
-
