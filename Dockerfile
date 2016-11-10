@@ -13,9 +13,6 @@ RUN apt-get update
 RUN apt-get -qy install wget
 RUN apt-get -qy install apt-transport-https
 
-# Just for development. Not needed for production
-RUN apt- get -qy install mc
-
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
