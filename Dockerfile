@@ -44,4 +44,4 @@ WORKDIR /opt/fhem
 #   if($^O !~ m/Win/ && $< == 0) {
 #   ...
 
-CMD "perl fhem.pl fhem.cfg"
+CMD "perl /opt/fhem/fhem.pl /opt/fhem/fhem.cfg"
