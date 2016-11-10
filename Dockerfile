@@ -10,8 +10,8 @@ ENV port 7072
 RUN apt-get update
 
 # Install packages taht are needed when building the image with this Dockerfile
-RUN apt-get -qy install apt-utils && \
-                        apt-transport-https && \
+RUN apt-get -qy install apt-utils 
+RUN apt-get -qy install apt-transport-https && \
                         wget
 
 # Import repository gpg key:
