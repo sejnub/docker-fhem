@@ -34,7 +34,7 @@ RUN apt-get -qy install mc
 EXPOSE 8083 8084 8085 7072
 
 
-RUN echo 'attr global nofork 1\n' >> /opt/fhem-5.7/fhem.cfg
+RUN echo 'attr global nofork 1\n' >> /opt/fhem/fhem.cfg
 #USER fhem
 WORKDIR /opt/fhem
 
