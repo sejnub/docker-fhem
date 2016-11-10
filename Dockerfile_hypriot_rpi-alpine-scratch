@@ -23,7 +23,7 @@ VOLUME /opt/fhem
 
 ADD http://fhem.de/fhem-${FHEM_VERSION}.tar.gz /usr/local/lib/fhem.tar
 RUN cd /opt && tar xvf /usr/local/lib/fhem.tar
-RUN echo 'attr global nofork 1\n' >> /opt/fhem/fhem.cfg
+RUN echo 'attr global nofork 1\n' >> /opt/fhem-5.7/fhem.cfg
 
 EXPOSE 8083 8084 8085 7072
 
