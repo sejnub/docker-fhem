@@ -34,7 +34,7 @@ RUN apt-get -qy install mc
 EXPOSE 8083 8084 8085 7072
 
 
-
+USER fhem
 WORKDIR /opt/fhem
 
 # Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
@@ -44,4 +44,4 @@ WORKDIR /opt/fhem
 #   if($^O !~ m/Win/ && $< == 0) {
 #   ...
 
-CMD "perl /opt/fhem/fhem.pl /opt/fhem/fhem.cfg"
+CMD perl fhem.pl fhem.cfg
