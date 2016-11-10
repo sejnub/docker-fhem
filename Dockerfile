@@ -33,8 +33,9 @@ RUN apt-get -qy install mc
 
 EXPOSE 8083 8084 8085 7072
 
+
+# https://forum.fhem.de/index.php?topic=53586.0
+
 WORKDIR /opt/fhem
 USER fhem
-
-# See http://stackoverflow.com/questions/21898152/why-cant-you-start-postgres-in-docker-using-service-postgres-start
 CMD "perl fhem.pl fhem.cfg"
