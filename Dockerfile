@@ -34,8 +34,14 @@ RUN apt-get -qy install mc
 EXPOSE 8083 8084 8085 7072
 
 
-# https://forum.fhem.de/index.php?topic=53586.0
 
 WORKDIR /opt/fhem
-USER fhem
+
+# Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
+#
+# In fhem.pl there is the code:
+#   # If started as root, and there is a fhem user in the /etc/passwd, su to it
+#   if($^O !~ m/Win/ && $< == 0) {
+#   ...
+
 CMD "perl fhem.pl fhem.cfg"
