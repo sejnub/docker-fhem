@@ -20,3 +20,11 @@ docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem
 docker exec -i -t fhem bash
 
 ```
+## CUL
+For flashing and adding CUL see 
+https://haus-automatisierung.com/hardware/fhem/2016/05/08/fhem-tutorial-reihe-part-4-cul-flashen-und-erste-geraete-anlernen.html
+
+For running with CUL we need privileged
+```
+docker rm -f fhem; docker run --privileged -d -p 8083:8083 --name fhem sejnub/fhem
+```
