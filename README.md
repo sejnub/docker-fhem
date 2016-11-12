@@ -26,5 +26,5 @@ https://haus-automatisierung.com/hardware/fhem/2016/05/08/fhem-tutorial-reihe-pa
 
 For running with CUL we need privileged
 ```
-docker rm -f fhem; docker run --privileged -d -p 8083:8083 --name fhem sejnub/fhem
+docker rm -f fhem; docker run --device /dev/ttyACM0 -d -p 8083:8083 --name fhem sejnub/fhem
 ```
