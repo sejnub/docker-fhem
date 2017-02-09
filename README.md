@@ -15,7 +15,7 @@ cd docker-fhem
 
 docker build -t sejnub/fhem .
 
-docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem
+docker rm -f fhem; docker run -d -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
 
 docker exec -i -t fhem bash
 
@@ -26,5 +26,5 @@ https://haus-automatisierung.com/hardware/fhem/2016/05/08/fhem-tutorial-reihe-pa
 
 For running with CUL we need --privileged or --device <cul-device>
 ```
-docker rm -f fhem; docker run --device /dev/ttyACM0 -d -p 8083:8083 --name fhem sejnub/fhem
+docker rm -f fhem; docker run --device /dev/ttyACM0 -d -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
 ```
