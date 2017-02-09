@@ -3,14 +3,13 @@ MAINTAINER sejnub
 
 ENV port 7072
 
-
 # See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
-
-# Update your package administration:
-RUN apt-get update
 
 
 #### Install FHEM ####
+
+# Update your package administration:
+RUN apt-get update
 
 # Install packages taht are needed when building the image with this Dockerfile
 RUN apt-get -qy install apt-utils \
