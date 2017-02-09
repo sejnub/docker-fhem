@@ -9,9 +9,21 @@ ENV port 7072
 # Update your package administration:
 RUN apt-get update
 
-# Install packages taht are needed when building the image with this Dockerfile
+
+#### Install the perl module Module::Pluggable ####
+
+# 'make' is needed for the cpan install of Module::Pluggable
 RUN apt-get -qy install apt-utils \
-                        apt-transport-https \
+                        make 
+                        
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan -i Module::Pluggable
+
+
+#### Install FHEM ####
+
+# Install packages taht are needed when building the image with this Dockerfile
+RUN apt-get -qy install apt-transport-https \
                         wget
 
 # Import repository gpg key:
@@ -27,9 +39,13 @@ RUN apt-get update
 RUN apt-get -qy install fhem
 
 
+#### Install commodities ####
+
 # Just for development. Not needed for production
 RUN apt-get -qy install mc
 
+
+#### docker stuff ####
 
 EXPOSE 8083 8084 8085 7072
 
