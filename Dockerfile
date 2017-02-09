@@ -10,20 +10,11 @@ ENV port 7072
 RUN apt-get update
 
 
-#### Install the perl module Module::Pluggable ####
-
-# 'make' is needed for the cpan install of Module::Pluggable
-RUN apt-get -qy install apt-utils \
-                        make 
-                        
-RUN export PERL_MM_USE_DEFAULT=1 && \
-    cpan -i Module::Pluggable
-
-
 #### Install FHEM ####
 
 # Install packages taht are needed when building the image with this Dockerfile
-RUN apt-get -qy install apt-transport-https \
+RUN apt-get -qy install apt-utils \
+                        apt-transport-https \
                         wget
 
 # Import repository gpg key:
@@ -37,6 +28,15 @@ RUN apt-get update
 
 # Install fhem:
 RUN apt-get -qy install fhem
+
+
+#### Install the perl module Module::Pluggable ####
+
+# 'make' is needed for the cpan install of Module::Pluggable
+RUN apt-get -qy install make 
+                        
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan -i Module::Pluggable
 
 
 #### Install commodities ####
