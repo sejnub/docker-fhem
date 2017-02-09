@@ -19,12 +19,12 @@ In FHEM
 
     define rabbitmq MQTT 172.17.0.3:1883 guest guest
     
-    define culws3 MQTT_BRIDGE CUL_WS_3
-    attr culws3 publishState culws3Topic
+    define mqbWs3     MQTT_BRIDGE  CUL_WS_3
+    attr   mqbWs3     publishState fhem/ws3/pub
     
     define mqbSwitch1 MQTT_BRIDGE  FS20_12cb03
-    attr   mqbSwitch1 publishState switch1Topic
-    attr   mqbSwitch1 subscribeSet fhem/mqtt/Licht/set
+    attr   mqbSwitch1 publishState fhem/switch1/pub
+    attr   mqbSwitch1 subscribeSet fhem/switch1/sub
     
     define mqdSwitch1 MQTT_DEVICE
     
