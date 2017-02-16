@@ -9,11 +9,11 @@ m4_define(`m5_prefix_dashbutton', `dashbutton')
 m4_define(`m5_prefix_fs20rc',     `rc')
 
 
-m4_define(`m5_name_of_fs20std', `m5_prefix_fs20std()_$1_FS20')
+m4_define(`m5_name_of_fs20st', `m5_prefix_fs20st()_$1_FS20')
 
 m4_define(`m5_name_of_fht80b', `m5_prefix_fht80b()_$1_FHT')
 
-m4_define(`m5_toggle_fs20std', `{HBToggle("m5_name_of_fs20std($1)")}')
+m4_define(`m5_toggle_fs20st', `{HBToggle("m5_name_of_fs20st($1)")}')
 
 
 m4_define(`m5_mqttbroker',`m4_dnl ###################################
@@ -61,9 +61,9 @@ attr   m5_devnamebase()_MQTT_BRIDGE room                       m5_mqtt_room() m4
 ')
 
 
-m4_define(`m5_fs20std',`m4_dnl #######################################
+m4_define(`m5_fs20st',`m4_dnl #######################################
 m4_dnl
-m4_define(`m5_devnamebase',`m5_prefix_fs20std()_$1')m4_dnl
+m4_define(`m5_devnamebase',`m5_prefix_fs20st()_$1')m4_dnl
 m4_dnl
 define m5_devnamebase()_FS20        FS20         $2
 attr   m5_devnamebase()_FS20        room         $3

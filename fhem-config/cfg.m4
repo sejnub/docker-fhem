@@ -1,6 +1,8 @@
 # TODO
-# - Remove Passwords from Allowed section!
 # - Why are the SVGs empty?
+# - Security
+#   - Remove Passwords from "Allowed" section!
+#   - Credentials for mqtt are not implemented
 #
 #
 # Update-Vorgang
@@ -97,6 +99,7 @@ m5_cul(cul0, /dev/ttyACM0@9600 1034, Arbeitszimmer)
 
 #### MQTT-Broker ####
 
+# TODO: Credentials are missing
 m5_mqttbroker(rabbitmq, 172.17.0.3:1883, mqtt-room)
 
 
@@ -162,9 +165,9 @@ m5_fs20rc(rc3_btn3,  5f29 02, Unbekannter-Raum)
 m5_dashbutton(Ariel1,   Mobil)
 m5_dashbutton(Bio1,     Mobil)
 m5_dashbutton(Bio2,     Mobil)
-m5_dashbutton(Caffe1,   Wohnzimmer,   {HBToggle("m5_name_of_fs20std(Licht_Wohnzimmer)")})
-m5_dashbutton(Kleenex1, Schlafzimmer, m5_toggle_fs20std(Licht_Schlafzimmer))
-m5_dashbutton(Somat1,   Wohnzimmer,   m5_toggle_fs20std(Licht_Wohnzimmer))
+m5_dashbutton(Caffe1,   Wohnzimmer,   {HBToggle("m5_name_of_fs20st(Licht_Wohnzimmer)")})
+m5_dashbutton(Kleenex1, Schlafzimmer, m5_toggle_fs20st(Licht_Schlafzimmer))
+m5_dashbutton(Somat1,   Wohnzimmer,   m5_toggle_fs20st(Licht_Wohnzimmer))
 
 
 #### Bewegungsmelder Typ PIRI ####
@@ -174,7 +177,7 @@ m5_fs20piri(Flur, 2d03 00, Flur)
 
 #### at ####
 
-define at1 at *12:13:14 set m5_name_of_fs20std(Sechsfachstecker_Schlafzimmer) on
+define at1 at *12:13:14 set m5_name_of_fs20st(Sechsfachstecker_Schlafzimmer) on
 attr   at1 room Sysraum
 
 define at2 at *04:12:13 set m5_name_of_fht80b(Kueche)                         time 
