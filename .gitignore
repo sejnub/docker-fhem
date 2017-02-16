@@ -1,1 +1,12 @@
 *.bak
+/fhem-config/fhem.cfg
+/fhem-config/gplot-culws-copy.sh
+/fhem-config/gplot-culws-list
+/fhem-config/gplot-culws-replace.sh
+/fhem-config/s555_Bett_Heiner_SVG.gplot
+/fhem-config/s555_Dachboden_SVG.gplot
+/fhem-config/s555_Duschraum_SVG.gplot
+/fhem-config/s555_Flur_SVG.gplot
+/fhem-config/s555_Grosses_Bad_SVG.gplot
+/fhem-config/s555_Kuehlschrank_SVG.gplot
+/fhem-config/s555_Schlafzimmer_SVG.gplot
