@@ -19,6 +19,8 @@ For running with CUL we need --privileged or --device <cul-device>
 
     docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
 
+    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:updated
+
     eof
     
     
