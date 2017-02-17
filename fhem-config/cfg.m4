@@ -86,6 +86,7 @@ attr   autocreate weblink_room Plots
 define eventTypes eventTypes ./log/eventTypes.txt
 attr   eventTypes room       Sysraum
 
+
 #### USB-Devices 
 
 # Disable this to avoid looking for new USB devices on startup
@@ -93,8 +94,6 @@ define initialUsbCheck notify global:INITIALIZED usb create
 attr   initialUsbCheck room   Sysraum
 
 m5_cul(cul0, /dev/ttyACM0@9600 1034, Arbeitszimmer)
-
-######################################################### Bis hier OK
 
 
 #### MQTT-Broker ####
