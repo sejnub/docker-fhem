@@ -1,6 +1,9 @@
 FROM resin/rpi-raspbian:jessie-20160831  
 MAINTAINER sejnub
 
+# TODO
+# - Insert credentials into fhem.cfg I don't know by now how.
+
 ENV port 7072
 
 # See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
