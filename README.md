@@ -9,6 +9,8 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 
     cd ~; rm -rf docker-fhem; git clone https://github.com/sejnub/docker-fhem.git
     cd ~/docker-fhem; docker build -t sejnub/fhem .
+    
+    eof
 
 
 ## Run
