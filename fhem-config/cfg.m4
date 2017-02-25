@@ -29,7 +29,7 @@ attr global updateInBackground 1
 
 define web_allowed    allowed
 attr   web_allowed    validFor        screen_FHEMWEB, phone_FHEMWEBWEB, tablet_FHEMWEB
-attr   web_allowed    basicAuth       {"$user:$password" eq "klaus:klaus" or "$user:$password" eq "heinz:heinz"}
+attr   web_allowed    basicAuth       {"$user:$password" eq "<fhem_web_user_1>:<fhem_web_pass_1>"}
 attr   web_allowed    room            Sysraum
 
 define telnet_allowed allowed
