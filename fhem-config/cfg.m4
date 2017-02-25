@@ -7,11 +7,7 @@
 #
 # Update-Vorgang
 #
-# - define screen_FHEMWEB FHEMWEB    8083 global
-# - attr   screen_FHEMWEB editConfig 1
-# oder
 # - attr WEB editConfig 1
-# 
 # - upload via http://192.168.178.31:8083/fhem?cmd=style%20edit%20fhem.cfg
 # - rereadcfg
    
