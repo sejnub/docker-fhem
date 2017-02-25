@@ -61,7 +61,7 @@ WORKDIR /opt/fhem
 COPY entrypoint/configure-fhem.sh .  
 RUN  chmod ug+x configure-fhem.sh
 
-COPY /fhem-config/fhem.cfg /opt/fhem/fhem.cfg
+COPY /fhem-config/fhem.cfg /opt/fhem/fhem.cfg.new
 
 #ENTRYPOINT ["./configure-fhem.sh"]
 
