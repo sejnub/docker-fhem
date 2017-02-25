@@ -73,4 +73,4 @@ COPY /fhem-config/fhem.cfg /opt/fhem/fhem.cfg
 #   if($^O !~ m/Win/ && $< == 0) {
 #   ...
 
-CMD perl fhem.pl fhem.cfg
+CMD ["perl fhem.pl fhem.cfg"]
