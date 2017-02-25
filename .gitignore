@@ -1,5 +1,4 @@
 *.bak
-/fhem-config/fhem.cfg
 /fhem-config/gplot-culws-copy.sh
 /fhem-config/gplot-culws-list
 /fhem-config/gplot-culws-replace.sh
