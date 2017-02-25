@@ -29,3 +29,10 @@ For running with CUL we need --privileged or --device <cul-device>
 For flashing and adding CUL see 
 https://haus-automatisierung.com/hardware/fhem/2016/05/08/fhem-tutorial-reihe-part-4-cul-flashen-und-erste-geraete-anlernen.html
 
+
+## Intended workflow
+- 
+
+
+
+eof
