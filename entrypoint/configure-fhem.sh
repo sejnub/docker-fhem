@@ -1,5 +1,10 @@
 #!/bin/sh
 
+
+# TODO 
+# - update fhem
+# - restart fhem
+
 sed -i -e "s/<fhem_web_user_1>/$HB_FHEMWEB_USERNAME/" /opt/fhem/fhem.cfg
 sed -i -e "s/<fhem_web_pass_1>/$HB_FHEMWEB_PASSWORD/" /opt/fhem/fhem.cfg
 
