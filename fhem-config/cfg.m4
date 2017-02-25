@@ -1,7 +1,7 @@
 # TODO
 # - Why are the SVGs empty?
 # - Security
-#   - Remove Passwords from "Allowed" section!
+#   - Remove Passwords from "Allowed" section and set them in another way!
 #   - Credentials for mqtt are not implemented
 #
 #

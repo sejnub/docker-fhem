@@ -21,7 +21,7 @@ m4_dnl
 m4_define(`m5_mqtt_device',`$1')m4_dnl
 m4_define(`m5_mqtt_room',  `$3')m4_dnl
 m4_dnl
-define $1 MQTT $2
+define $1 MQTT $2 <mqtt_user> <mqtt_pass> 
 attr   $1 room $3 m4_dnl
 ')
 
