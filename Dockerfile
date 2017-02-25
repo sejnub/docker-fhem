@@ -63,7 +63,7 @@ RUN  chmod ug+x configure-fhem.sh
 
 COPY /fhem-config/fhem.cfg /opt/fhem/fhem.cfg
 
-ENTRYPOINT ["./configure-fhem.sh"]
+#ENTRYPOINT ["./configure-fhem.sh"]
 
 
 # Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
