@@ -39,7 +39,7 @@ RUN apt-get -qy install mc
 
 #RUN apt-get -qy install fhem
 
-# s I install the package directly
+# so (because it's broken) I install the package directly
 WORKDIR /opt/fhem
 
 # Manually install dependencies (not needed when installing fhem via apt-get install
@@ -56,7 +56,7 @@ RUN apt-get -qy install         \
 
 RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
-RUN rm fhem-X.Y.deb
+RUN rm fhem-5.8.deb
 
 
 # Some additions to the standard fhem.cfg
