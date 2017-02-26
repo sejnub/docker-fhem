@@ -3,7 +3,7 @@ This repository contains the things needed to build docker images for the home a
 
 ## Tags
   * **``rpi-latest``**  FHEM 5.8 for Raspberry Pi
-  * ``**rpi-updated**`` FHEM 5.8 for Raspberry Pi updated to the (at build time) latest versions of all modules
+  * **``rpi-updated``** FHEM 5.8 for Raspberry Pi updated to the (at build time) latest versions of all modules
 
 ## Thanks
 Initial content was copied from https://github.com/Raigen/docker-fhem. Many thanks for your effort! 
