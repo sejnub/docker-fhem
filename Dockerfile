@@ -1,8 +1,6 @@
 FROM resin/rpi-raspbian:jessie-20160831  
-MAINTAINER sejnub
 
-# TODO
-# - Insert credentials into fhem.cfg I don't know by now how.
+MAINTAINER sejnub
 
 ENV port 7072
 
@@ -28,8 +26,16 @@ RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
 # Update your package administration:
 RUN apt-get update
 
-# Install fhem:
+
+#### Install fhem ####
+
+WORKDIR /opt/fhem
+
 RUN apt-get -qy install fhem
+
+# Some additions to the standard fhem.cfg
+RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg
+RUN echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
 
 
 #### Install the perl module Module::Pluggable ####
@@ -50,21 +56,6 @@ RUN apt-get -qy install mc
 #### docker stuff ####
 
 EXPOSE 8083 8084 8085 7072
-WORKDIR /opt/fhem
-
-
-## TODO: Move this more to begin of file
-## Some additions to the standard fhem.cfg
-#RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg
-#RUN echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
-
-COPY entrypoint/configure-fhem.sh .  
-RUN  chmod ug+x configure-fhem.sh
-
-COPY /fhem-config/fhem.cfg /opt/fhem/fhem.cfg.new
-
-#ENTRYPOINT ["./configure-fhem.sh"]
-
 
 # Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
 #
