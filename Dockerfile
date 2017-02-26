@@ -69,8 +69,12 @@ RUN rm fhem-5.8.deb
 #### Configure FHEM ####
 
 # Some additions to the standard fhem.cfg
-RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg && \
-    echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
+RUN echo 'attr global nofork     1\n'      >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB    editConfig 1\n'      >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB csrfToken none\n'       >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBphone csrfToken none\n'  >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBtablet csrfToken none\n' >> /opt/fhem/fhem.cfg 
+
 
 
 #### docker stuff ####
