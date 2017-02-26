@@ -24,15 +24,6 @@ RUN apt-get -qy install apt-utils \
 RUN apt-get -qy install mc
 
 
-#### Install the perl module Module::Pluggable ####
-
-# 'make' is needed for the cpan install of Module::Pluggable
-RUN apt-get -qy install make 
-                        
-RUN export PERL_MM_USE_DEFAULT=1 && \
-    cpan -i Module::Pluggable
-
-
 #### Install fhem ####
 
 # At the moment the following way is broken
@@ -64,6 +55,13 @@ RUN apt-get -qy install         \
       libtext-diff-perl
       
 
+# Install the perl module Module::Pluggable
+# 'make' is needed for the cpan install of Module::Pluggable
+RUN apt-get -qy install make                         
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan -i Module::Pluggable
+
+# and now for FHEM itself
 RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
 RUN rm fhem-5.8.deb
