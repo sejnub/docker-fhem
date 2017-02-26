@@ -24,6 +24,15 @@ RUN apt-get -qy install apt-utils \
 RUN apt-get -qy install mc
 
 
+#### Install the perl module Module::Pluggable ####
+
+# 'make' is needed for the cpan install of Module::Pluggable
+RUN apt-get -qy install make 
+                        
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan -i Module::Pluggable
+
+
 #### Install fhem ####
 
 # At the moment the following way is broken
@@ -38,6 +47,7 @@ RUN apt-get -qy install mc
 #RUN apt-get update
 
 #RUN apt-get -qy install fhem
+
 
 # so (because it's broken) I install the package directly
 WORKDIR /opt/fhem
@@ -58,22 +68,11 @@ RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
 RUN rm fhem-5.8.deb
 
+#### Configure FHEM ####
 
 # Some additions to the standard fhem.cfg
 RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg && \
     echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
-
-
-#### Install the perl module Module::Pluggable ####
-
-WORKDIR ~
-
-# 'make' is needed for the cpan install of Module::Pluggable
-RUN apt-get -qy install make 
-                        
-RUN export PERL_MM_USE_DEFAULT=1 && \
-    cpan -i Module::Pluggable
-
 
 
 #### docker stuff ####
