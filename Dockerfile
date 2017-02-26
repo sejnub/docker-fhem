@@ -41,7 +41,7 @@ WORKDIR /opt/fhem
 #RUN apt-get -qy install fhem
 
 # s I install the package directly
-RUN wget  http://fhem.de/fhem-X.Y.deb
+RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
 RUN rm fhem-X.Y.deb
 
