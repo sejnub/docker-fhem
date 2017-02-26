@@ -34,23 +34,29 @@ Now commit the update to a new image
     
     docker commit fhem sejnub/fhem:rpi-updated
 
+Now you have an up to date image with fhem
 
-No the container has stopped. So at the command line type
+
+## Push images to https://hub.docker.com
+
+If you are not sejnub you have to retag the images to your username at dockerhub and usethose new tags. The following uses the authors tags.
+
+Log into dockerhub and push the images with
     
-    docker start fhem
-
-
+    docker login
+    docker push sejnub/fhem:rpi-last
+    docker push sejnub/fhem:rpi-updated
 
 
 ## Run
 
 For running with CUL we need --privileged or --device <cul-device>
 
-    docker rm -f fhem; docker run -it --env-file /usr/local/etc/hb-credentials.env --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem bash
+    docker rm -f fhem; docker run -it --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem bash
 
-    docker rm -f fhem; docker run -d  --env-file /usr/local/etc/hb-credentials.env --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
+    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
 
-    docker rm -f fhem; docker run -d  --env-file /usr/local/etc/hb-credentials.env --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:updated
+    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:updated
 
     eof
     
