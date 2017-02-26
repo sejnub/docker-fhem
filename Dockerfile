@@ -6,16 +6,24 @@ ENV port 7072
 
 # See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
 
-
-#### Install FHEM ####
-
 # Update your package administration:
 RUN apt-get update
+
+#### Install commodities ####
+
+# Just for development. Not needed for production
+RUN apt-get -qy install mc
+
+
+#### Install needed tools ####
 
 # Install packages taht are needed when building the image with this Dockerfile
 RUN apt-get -qy install apt-utils \
                         apt-transport-https \
                         wget
+
+
+#### Install fhem ####
 
 # Import repository gpg key:
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
@@ -26,19 +34,25 @@ RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
 # Update your package administration:
 RUN apt-get update
 
-
-#### Install fhem ####
-
 WORKDIR /opt/fhem
 
-RUN apt-get -qy install fhem
+# At the moment the following way is broken
+#RUN apt-get -qy install fhem
+
+# s I install the package directly
+RUN wget  http://fhem.de/fhem-X.Y.deb
+RUN dpkg -i fhem-5.8.deb
+RUN rm fhem-X.Y.deb
+
 
 # Some additions to the standard fhem.cfg
-RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg
-RUN echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
+RUN echo 'attr global nofork     1\n' >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB    editConfig 1\n' >> /opt/fhem/fhem.cfg
 
 
 #### Install the perl module Module::Pluggable ####
+
+WORKDIR ~
 
 # 'make' is needed for the cpan install of Module::Pluggable
 RUN apt-get -qy install make 
@@ -46,11 +60,6 @@ RUN apt-get -qy install make
 RUN export PERL_MM_USE_DEFAULT=1 && \
     cpan -i Module::Pluggable
 
-
-#### Install commodities ####
-
-# Just for development. Not needed for production
-RUN apt-get -qy install mc
 
 
 #### docker stuff ####
