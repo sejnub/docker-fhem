@@ -57,7 +57,7 @@ For running with CUL we need --privileged or --device <cul-device>. The followin
 
 Run an interactive bash
 
-    docker rm -f fhem; docker run -it --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem bash
+    docker rm -f fhem; docker run -it --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest bash
 
 Run the latest or the updated version
 
