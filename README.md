@@ -34,12 +34,12 @@ Now commit the update to a new image
     
     docker commit fhem sejnub/fhem:rpi-updated
 
-Now you have an up to date image with fhem
+Now you have an up to date image with fhem.
 
 
 ## Push images to https://hub.docker.com
 
-If you are not sejnub you have to retag the images to your username at dockerhub and usethose new tags. The following uses the authors tags.
+If you are not sejnub you have to retag the images to your username at dockerhub and use those new tags. The following commands use the authors tags.
 
 Log into dockerhub and push the images with
     
