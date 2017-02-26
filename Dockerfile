@@ -84,4 +84,4 @@ EXPOSE 8083 8084 8085 7072
 #   if($^O !~ m/Win/ && $< == 0) {
 #   ...
 
-CMD ["perl fhem.pl fhem.cfg"]
+CMD perl fhem.pl fhem.cfg
