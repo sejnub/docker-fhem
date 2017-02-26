@@ -41,6 +41,19 @@ RUN apt-get -qy install mc
 
 # s I install the package directly
 WORKDIR /opt/fhem
+
+# Manually install dependencies (not needed when installing fhem via apt-get install
+RUN apt-get -qy install         \
+      libdevice-serialport-perl \
+      libwww-perl               \
+      libio-socket-ssl-perl     \
+      libcgi-pm-perl            \
+      libjson-perl              \
+      sqlite3                   \
+      libdbd-sqlite3-perl       \
+      libtext-diff-perl
+      
+
 RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
 RUN rm fhem-X.Y.deb
