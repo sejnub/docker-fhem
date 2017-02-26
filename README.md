@@ -53,7 +53,7 @@ Log into dockerhub and push the images with
 
 ## Run
 
-For running with CUL we need --privileged or --device <cul-device>. The following commands assume that you use a CUL in a typical setup.
+For running with CUL we need ``--privileged`` or ``--device`` <cul-device>. The following commands assume that you use a CUL in a typical setup.
 
 Run an interactive bash
 
