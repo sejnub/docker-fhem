@@ -1,6 +1,7 @@
 # fhem
 FHEM for Raspberry Pi
 
+
 ## Thanks
 Initial content was copied from https://github.com/Raigen/docker-fhem. Many thanks for your effort! 
 
@@ -8,9 +9,32 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 ## Build
 
     cd ~; rm -rf docker-fhem; git clone https://github.com/sejnub/docker-fhem.git
-    cd ~/docker-fhem; docker build -t sejnub/fhem .
+    cd ~/docker-fhem; docker build -t sejnub/fhem:rpi-last .
     
     eof
+
+
+## Update FHEM
+
+Run 
+    docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem:rpi-last
+
+Open browser and point it to the fhem webserver on port 8083.
+
+Into the command field at the top of the fhem web page type
+    update
+
+When it's finished type into the same command field
+    shutdown
+
+Now commit the update to a new image
+    docker commit fhem sejnub/fhem:rpi-updated
+
+
+No the container has stopped. So at the command line type
+    docker start fhem
+
+
 
 
 ## Run
