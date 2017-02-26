@@ -9,11 +9,6 @@ ENV port 7072
 # Update your package administration:
 RUN apt-get update
 
-#### Install commodities ####
-
-# Just for development. Not needed for production
-RUN apt-get -qy install mc
-
 
 #### Install needed tools ####
 
@@ -21,6 +16,12 @@ RUN apt-get -qy install mc
 RUN apt-get -qy install apt-utils \
                         apt-transport-https \
                         wget
+
+
+#### Install commodities ####
+
+# Just for development. Not needed for production
+RUN apt-get -qy install mc
 
 
 #### Install fhem ####
