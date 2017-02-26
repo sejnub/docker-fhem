@@ -12,7 +12,7 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 ## Build
 
     cd ~; rm -rf docker-fhem; git clone https://github.com/sejnub/docker-fhem.git
-    cd ~/docker-fhem; docker build -t sejnub/fhem:rpi-last .
+    cd ~/docker-fhem; docker build -t sejnub/fhem:rpi-latest .
     
     eof
 
@@ -21,7 +21,7 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 
 Run 
     
-    docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem:rpi-last
+    docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem:rpi-latest
 
 Open browser and point it to the fhem webserver on port 8083.
 
@@ -47,7 +47,7 @@ If you are not sejnub you have to retag the images to your username at dockerhub
 Log into dockerhub and push the images with
     
     docker login
-    docker push sejnub/fhem:rpi-last
+    docker push sejnub/fhem:rpi-latest
     docker push sejnub/fhem:rpi-updated
 
 
