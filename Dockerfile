@@ -26,21 +26,21 @@ RUN apt-get -qy install mc
 
 #### Install fhem ####
 
+# At the moment the following way is broken
+
 # Import repository gpg key:
-RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
+#RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 
 # Add repository to /etc/apt/sources.list:
-RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
+#RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
 
 # Update your package administration:
-RUN apt-get update
+#RUN apt-get update
 
-WORKDIR /opt/fhem
-
-# At the moment the following way is broken
 #RUN apt-get -qy install fhem
 
 # s I install the package directly
+WORKDIR /opt/fhem
 RUN wget  http://fhem.de/fhem-5.8.deb
 RUN dpkg -i fhem-5.8.deb
 RUN rm fhem-X.Y.deb
