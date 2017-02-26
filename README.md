@@ -2,7 +2,7 @@
 This repository contains the things needed to build docker images for the home autoomation software FHEM (http://fhem.de)
 
 ## Tags
-  * **rpi-latest** FHEM 5.8 for Raspberry Pi
+  * **rpi-latest**  FHEM 5.8 for Raspberry Pi
   * **rpi-updated** FHEM 5.8 for Raspberry Pi updated to the (at build time) latest versions of all modules
 
 ## Thanks
@@ -53,13 +53,17 @@ Log into dockerhub and push the images with
 
 ## Run
 
-For running with CUL we need --privileged or --device <cul-device>
+For running with CUL we need --privileged or --device <cul-device>. The following commands assume that you use a CUL in a typical setup.
+
+Run an interactive bash
 
     docker rm -f fhem; docker run -it --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem bash
 
-    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem
+Run the latest or the updated version
 
-    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:updated
+    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest
+
+    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
 
     eof
     
