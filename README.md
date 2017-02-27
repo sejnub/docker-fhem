@@ -1,6 +1,10 @@
 # docker-fhem
 This repository contains the things needed to build docker images for the home autoomation software FHEM (http://fhem.de)
 
+## Status and rights
+AFAIK stable. 
+Totally free to use by everyone.
+
 ## Tags
   * **``rpi-latest``**  FHEM 5.8 for Raspberry Pi
   * **``rpi-updated``** FHEM 5.8 for Raspberry Pi updated to the (at build time) latest versions of all modules
