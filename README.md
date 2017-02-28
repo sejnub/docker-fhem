@@ -18,8 +18,6 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
     cd ~; rm -rf docker-fhem; git clone https://github.com/sejnub/docker-fhem.git
     cd ~/docker-fhem; docker build -t sejnub/fhem:rpi-latest .
     
-    eof
-
 
 ## Update FHEM
 
@@ -68,8 +66,6 @@ Run the latest or the updated version
     docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest
 
     docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
-
-    eof
     
     
 ## CUL
