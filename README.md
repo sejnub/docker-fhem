@@ -67,15 +67,6 @@ Run the latest or the updated version
 
     docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
 
-Run for production
-
-    cd ~
-    SHARED_FHEM_LOG=$(pwd)/docker-fhem/log
-    mkdir $SHARED_FHEM_LOG
-    sudo chmod ugo+w $SHARED_FHEM_LOG
-    docker rm -f fhem
-    docker run -d  -v $SHARED_FHEM_LOG:/opt/fhem/log --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
-    
     
 ## CUL
 
