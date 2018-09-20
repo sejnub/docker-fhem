@@ -1,0 +1,91 @@
+FROM resin/rpi-raspbian:stretch-20180815
+
+MAINTAINER sejnub
+
+ENV port 7072
+
+# See https://debian.fhem.de/ and https://forum.fhem.de/index.php?topic=27679.0 for details
+
+# Update your package administration:
+RUN apt-get update
+
+
+#### Install needed tools ####
+
+# Install packages taht are needed when building the image with this Dockerfile
+RUN apt-get -qy install apt-utils \
+                        apt-transport-https \
+                        wget
+
+
+#### Install commodities ####
+
+# Just for development. Not needed for production
+RUN apt-get -qy install mc
+
+
+#### Install fhem ####
+
+# At the moment the following way is broken
+
+# Import repository gpg key:
+#RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
+
+# Add repository to /etc/apt/sources.list:
+#RUN echo "deb https://debian.fhem.de/stable ./" | tee -a /etc/apt/sources.list
+
+# Update your package administration:
+#RUN apt-get update
+
+#RUN apt-get -qy install fhem
+
+
+# so (because it's broken) I install the package directly
+WORKDIR /opt/fhem
+
+# Manually install dependencies (not needed when installing fhem via apt-get install
+RUN apt-get -qy install         \
+      libdevice-serialport-perl \
+      libwww-perl               \
+      libio-socket-ssl-perl     \
+      libcgi-pm-perl            \
+      libjson-perl              \
+      sqlite3                   \
+      libdbd-sqlite3-perl       \
+      libtext-diff-perl
+      
+
+# Install the perl module Module::Pluggable
+# 'make' is needed for the cpan install of Module::Pluggable
+RUN apt-get -qy install make                         
+RUN export PERL_MM_USE_DEFAULT=1 && \
+    cpan -i Module::Pluggable
+
+# and now for FHEM itself
+RUN wget  http://fhem.de/fhem-5.8.deb
+RUN dpkg -i fhem-5.8.deb
+RUN rm fhem-5.8.deb
+
+#### Configure FHEM ####
+
+# Some additions to the standard fhem.cfg
+RUN echo 'attr global    nofork     1\n'    >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB       editConfig 1\n'    >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB       csrfToken  none\n' >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBphone  csrfToken  none\n' >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBtablet csrfToken  none\n' >> /opt/fhem/fhem.cfg 
+
+
+
+#### docker stuff ####
+
+EXPOSE 8083 8084 8085 7072
+
+# Some info about which user should start fhem: https://forum.fhem.de/index.php?topic=53586.0
+#
+# In fhem.pl there is the code:
+#   # If started as root, and there is a fhem user in the /etc/passwd, su to it
+#   if($^O !~ m/Win/ && $< == 0) {
+#   ...
+
+CMD perl fhem.pl fhem.cfg
