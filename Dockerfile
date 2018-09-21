@@ -1,4 +1,5 @@
-FROM resin/rpi-raspbian:jessie-20160831  
+FROM resin/rpi-raspbian:stretch-20180815  
+# Dockerfile is untested with this base image (stretch-20180815) by now.
 
 MAINTAINER sejnub
 
