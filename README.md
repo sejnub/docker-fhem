@@ -1,6 +1,23 @@
 # docker-fhem
 This repository contains the things needed to build docker images for the home autoomation software FHEM (http://fhem.de)
 
+## TODO
+
+### TODO / Set correct timezone for FHEM
+
+`/etc/timezone` is set via mounting as a run parameter bust still FHEM reports the wrong timezone.
+
+To fix this I put `{$ENV{TZ}='Europe/Berlin'}` into fhem.cfg but that is just a hack. Fix that properly!
+
+In ?????? it says:
+
+    Verify that your FHEM time is correct by entering {localtime()} into the FHEM command line. 
+    If not, check the system time and timezone of your FHEM server and adjust appropriately. 
+    It may be necessary to add export TZ=`cat /etc/timezone` or something similar to your FHEM start script /etc/init.d/fhem or your system configuration file /etc/profile. 
+    If /etc/timezone does not exists or is undefined execute tzselect to find your timezone and write the result into this file. 
+    After making changes restart FHEM and enter {$ENV{TZ}} into the FHEM command line to verify. To fix the timezone temporarily without restarting FHEM enter {$ENV{TZ}='Europe/Berlin'} or something similar into the FHEM command line. 
+    Again use tzselect to fine a valid timezone name.
+
 ## Status and rights
 AFAIK stable. 
 Totally free to use by everyone.
