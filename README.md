@@ -21,10 +21,8 @@ Initial content was copied from https://github.com/Raigen/docker-fhem. Many than
 
 ## Update FHEM
 
-Run 
+Run the latest version (see section "run")
     
-    docker rm -f fhem; docker run -d -p 8083:8083 --name fhem sejnub/fhem:rpi-latest
-
 Open browser and point it to the fhem webserver on port 8083.
 
 Into the command field at the top of the fhem web page type
@@ -59,13 +57,13 @@ For running with CUL we need ``--privileged`` or ``--device`` <cul-device>. The 
 
 Run an interactive bash
 
-    docker rm -f fhem; docker run -it --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest bash
+    docker rm -f fhem; docker run -it -v /etc/timezone:/etc/timezone --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest bash
 
 Run the latest or the updated version
 
-    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest
+    docker rm -f fhem; docker run -d  -v /etc/timezone:/etc/timezone --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-latest
 
-    docker rm -f fhem; docker run -d  --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
+    docker rm -f fhem; docker run -d  -v /etc/timezone:/etc/timezone --device /dev/ttyACM0 -p 8083:8083 -p 7072:7072 --name fhem sejnub/fhem:rpi-updated
 
     
 ## CUL
